@@ -6,11 +6,13 @@ from django.contrib.auth.models import User
 def profile(request,user_id):
     profile = User.objects.all().filter(pk=user_id)
     user = request.user
-    message = 'Welcome, ' + user
-    return render('user/profile.html',{"profile":profile,"message":message})
+    username = user.username 
+    message = 'Welcome, ' + username
+    return render(request,'user/profile.html',{"profile":profile,"message":message})
 
-def home(request,user_id):
-    profile = User.objects.all().filter(pk=user_id)
+def home(request):
     user = request.user
-    message = 'Welcome, ' + user
-    return render('content/index.html',{"profile":profile,"message":message})
+    username = user.username 
+    profile = User.objects.all().filter(pk=user.id)
+    message = 'Welcome, ' + username 
+    return render(request,'content/index.html',{"profile":profile,"message":message})
