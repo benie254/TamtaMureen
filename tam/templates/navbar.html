@@ -1,0 +1,32 @@
+{%if user.is_authenticated%}
+<ul class="nav justify-content-center sticky-top nav-tabs bg-light" style="padding-bottom:0.5%;padding-top:0.5%;opacity:0.98;">
+  <a class="navbar-brand" href="/" style="color:black;">
+    <!-- <img src="{%static 'photos/customer-review-4396641_1920.png'%}" alt="" width="40" height="38" style="background-color:#f5ebe0;border-radius:50%;margin-top:0.25%;margin-left:1.5%;"> -->
+    TamtaMureen
+  </a>
+  <li class="nav-item nav-tit">
+    <a class="nav-link" aria-current="page" href="/" style="border-style:ridge;">Home</a>
+  </li>
+  <!-- {%if user.permissions.is_admin%} -->
+  <li class="nav-item nav-it">
+    <a class="nav-link" href="/admin" style="border-style:groove;">Admin</a>
+  </li>
+  <!-- {%endif%} -->
+  <li class="nav-item nav-it-prof">
+    <a class="nav-link" href="{%url 'profile' user.id%}" style="border-style:groove;">Profile</a>
+  </li>
+  <li class="nav-item nav-it-prof">
+    <a class="nav-link" href="{%url 'logout'%}" style="border-style:groove;">Logout</a>
+  </li>
+</ul>
+
+{%else%}
+<ul class="nav justify-content-center sticky-top nav-tabs">
+  <li class="nav-item nav-it-prof">
+    <a class="nav-link active" href="/accounts/login/">Login</a>
+  </li>
+  <li class="nav-item nav-it-prof">
+    <a class="nav-link active" href="/accounts/register/">Register</a>
+  </li>
+</ul>
+{%endif%}
