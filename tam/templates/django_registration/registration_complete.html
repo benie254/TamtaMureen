@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+{%block content%}
+<div class="container">
+    <div class>
+        <div>
+            <h1 class="text-center">Nice to have you here!</h1>
+            <br>
+            <h4 class="text-center">Proceed <span><a href="/">Home</a></span> or to your <span><a href="{%url 'profile' user.id %}">Profile</a></span></h4>
+        </div>
+    </div>
+</div>
+{%endblock%}
