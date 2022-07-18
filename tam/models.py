@@ -6,6 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Profile(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     bio = models.CharField(max_length=250)
     address = models.CharField(max_length=60)
     profile_photo = CloudinaryField('Profile photo')
