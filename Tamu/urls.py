@@ -18,5 +18,5 @@ from django.urls import path,include
 
 
 urlpatterns = [
-    path('',include('review.urls')),
+    path('',include('tamu.urls')),
 ]
