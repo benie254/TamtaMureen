@@ -1,5 +1,6 @@
 from django.test import TestCase
 from tam.models import Profile,ingredient,Menu 
+from django.contrib.auth.models import User 
 
 # Create your tests here.
 class ProfileTestClass(TestCase):
@@ -19,7 +20,6 @@ class ProfileTestClass(TestCase):
 
     def test_update_profile(self):
         self.updated_profile = Profile.objects.filter(bio=self).update(bio='ANoda new day',address='Kericho',profile_photo='https://cloudinary.benie4.png',mobile_no=712354678,status='away')
-        self.updated_profile.save()
 
 
 class ingredientTestClass(TestCase):
@@ -64,7 +64,7 @@ class MenuTestClass(TestCase):
 
     
     def test_get_by_id(self):
-        get_by_id = Menu.objects.filter(id=self.id)
+        get_by_id = Menu.objects.filter(name=self.id)
         return get_by_id
 
     

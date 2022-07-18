@@ -51,7 +51,7 @@ class Menu(models.Model):
     CHOICES = (('ck','cooking',),('ar','awaiting request'),('av','available'))
     status = models.CharField(max_length=60,choices=CHOICES)
     ingredients = models.ManyToManyField(ingredient)
-    cook = models.ForeignKey(User,on_delete=models.CASCADE)
+    cook = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return self.description
