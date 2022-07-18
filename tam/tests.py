@@ -4,7 +4,7 @@ from tam.models import Profile,ingredient,Menu
 # Create your tests here.
 class ProfileTestClass(TestCase):
     def setUp(self):
-        self.janja = Profile(bio='Aloha',address='Nairobi',profile_photo='https://cloudinary.benie.png',mobile_number='0712345678',status='active')
+        self.janja = Profile(bio='Aloha',address='Nairobi',profile_photo='https://cloudinary.benie.png',mobile_no=712345678,status='active')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.janja,Profile))
@@ -18,7 +18,7 @@ class ProfileTestClass(TestCase):
         Profile.objects.all().delete()
 
     def test_update_profile(self):
-        self.updated_profile = Profile.objects.filter(bio=self).update(bio='ANoda new day',address='Kericho',profile_photo='https://cloudinary.benie4.png',mobile_number=712354678,status='away')
+        self.updated_profile = Profile.objects.filter(bio=self).update(bio='ANoda new day',address='Kericho',profile_photo='https://cloudinary.benie4.png',mobile_no=712354678,status='away')
         self.updated_profile.save()
 
 
