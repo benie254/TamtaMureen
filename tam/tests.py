@@ -14,6 +14,13 @@ class ProfileTestClass(TestCase):
         profiles = Profile.objects.all()
         self.assertTrue(len(profiles)>0)
 
+    def tearDown(self):
+        Profile.objects.all().delete()
+
+    def test_update_profile(self):
+        self.updated_profile = Profile.objects.filter(bio=self).update(bio='ANoda new day',address='Kericho',profile_photo='https://cloudinary.benie4.png',mobile_number=712354678,status='away')
+        self.updated_profile.save()
+
 
 class ingredientTestClass(TestCase):
     def setUp(self):
@@ -26,6 +33,13 @@ class ingredientTestClass(TestCase):
         self.pepper.save_ingredient()
         ingredients = ingredient.objects.all()
         self.assertTrue(len(ingredients)>0)
+
+    def tearDown(self):
+        ingredient.objects.all().delete()
+
+    def test_update_ingredient(self):
+        self.updated_ingredient = ingredient(name='brown pepper')
+        self.updated_ingredient.save()
 
 
 class MenuTestClass(TestCase):
