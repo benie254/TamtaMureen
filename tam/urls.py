@@ -12,5 +12,6 @@ urlpatterns = [
     
     path('accounts/signin', auth_views.LoginView.as_view(template_name='registration/login.html'),name='signin'),
     path('accounts/signout', auth_views.LogoutView.as_view(template_name='registration/logout.html'),name='signout'),
+    path('accounts/profile',auth_views.LoginView.as_view(template_name='registration/login_success.html'),name='signin-success')
     # path('',views.home,name='home'),
 ]
