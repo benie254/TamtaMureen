@@ -22,7 +22,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="/accounts/register/" method="post">
+                    <form action="/accounts/signup/" method="post">
                         {%csrf_token%}
                         {%bootstrap_form form%}
                         <div class="form-group">
@@ -30,7 +30,7 @@
                         </div>
                         <input type="hidden" name="next" value="{{next}}">
                     </form>
-                    <p>Already a member? <a href="/accounts/register">Sign in here</a></p>
+                    <p>Already a member? <a href="/accounts/signin">Sign in here</a></p>
                 </div>
             </div>
         </div>

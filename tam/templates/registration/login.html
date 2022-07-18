@@ -21,7 +21,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="/accounts/login/" method="post">
+                    <form action="/accounts/signin/" method="post">
                         {%csrf_token%}
                         {%bootstrap_form form%}
                         <div class="form-group">
@@ -31,7 +31,7 @@
                     </form>
                 </div>
             </div>
-            <p>Don't have an account? <a href="/accounts/register">Sign up here</a></p>
+            <p>Don't have an account? <a href="/accounts/signup">Sign up here</a></p>
         </div>
 
         <div class="col-md-4"></div>
