@@ -11,7 +11,7 @@ class Profile(models.Model):
     address = models.CharField(max_length=60)
     profile_photo = CloudinaryField('Profile photo')
     mobile_no = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
-    CHOICES = (('ac','active'),('aw','away'))
+    CHOICES = (('active','active'),('away','away'))
     status = models.CharField(max_length=60,choices=CHOICES)
 
     def __str__(self):
@@ -49,7 +49,7 @@ class Menu(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
     snap = CloudinaryField('Menu photo')
-    CHOICES = (('ck','cooking',),('ar','awaiting request'),('av','available'))
+    CHOICES = (('cooking','cooking',),('awaiting request','awaiting request'),('available','available'))
     status = models.CharField(max_length=60,choices=CHOICES)
     ingredients = models.ManyToManyField(ingredient)
     cook = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
