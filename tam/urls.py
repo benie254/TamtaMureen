@@ -11,6 +11,6 @@ urlpatterns = [
     path('accounts/', include('django_registration.backends.one_step.urls')),
     
     path('accounts/profile', auth_views.LoginView.as_view(template_name='registration/login.html'),name='signin'),
-    path('accounts/signout', auth_views.LogoutView.as_view(template_name='registration/login.html'),name='signout'),
+    path('accounts/signout', auth_views.LogoutView.as_view(template_name='registration/logout.html'),name='signout'),
     # path('',views.home,name='home'),
 ]
