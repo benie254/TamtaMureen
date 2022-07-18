@@ -16,17 +16,17 @@
     <a class="nav-link" href="{%url 'profile' user.id%}" style="border-style:groove;">Profile</a>
   </li>
   <li class="nav-item nav-it-prof">
-    <a class="nav-link" href="{%url 'logout'%}" style="border-style:groove;">Logout</a>
+    <a class="nav-link" href="{%url 'signout'%}" style="border-style:groove;">Sign Out</a>
   </li>
 </ul>
 
 {%else%}
 <ul class="nav justify-content-center sticky-top nav-tabs">
   <li class="nav-item nav-it-prof">
-    <a class="nav-link active" href="/accounts/login/">Login</a>
+    <a class="nav-link active" href="/accounts/signin">Sign in</a>
   </li>
   <li class="nav-item nav-it-prof">
-    <a class="nav-link active" href="/accounts/register/">Register</a>
+    <a class="nav-link active" href="/accounts/signup">Sign up</a>
   </li>
 </ul>
 {%endif%}
