@@ -9,5 +9,5 @@ urlpatterns = [
     path('admin', admin.site.urls,name='admin'),
     path('accounts/signin', auth_views.LoginView.as_view(template_name='registration/login.html'),name='signin'),
     path('accounts/signout', auth_views.LogoutView.as_view(template_name='registration/login.html'),name='signout'),
-    path('',views.home,name='home'),
+    # path('',views.home,name='home'),
 ]
