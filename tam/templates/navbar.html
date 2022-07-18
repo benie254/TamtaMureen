@@ -11,8 +11,13 @@
     <a class="nav-link" href="/admin" style="border-style:groove;">Admin</a>
   </li>
   <!-- {%endif%} -->
+  {%if user.permissions.is_admin%}
+  <li class="nav-item nav-it">
+    <a class="nav-link" href="/admin" style="border-style:groove;">B-Admin</a>
+  </li>
+  {%endif%}
   <li class="nav-item nav-it-prof">
-    <a class="nav-link" href="" style="border-style:groove;">Profile</a>
+    <a class="nav-link" href="{%url 'profile' user.id%}" style="border-style:groove;">Profile</a>
   </li>
   <li class="nav-item nav-it-prof">
     <a class="nav-link" href="{%url 'signout'%}" style="border-style:groove;">Sign Out</a>
