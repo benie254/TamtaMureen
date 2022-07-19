@@ -18,5 +18,5 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('menu/<menu_id>',views.menu,name='menu'),
     path('menus/search-by-ingredient-results',views.search_by_ingredient,name='search-results'),
-    path('menu/pre-order/<menu_id>',views.preorder,name='preorder'),
+    path('menu/pre-order/<menu_id>',views.preorder,name='pre-order'),
 ]
