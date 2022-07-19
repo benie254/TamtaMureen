@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+{%block content%}
+<div class="container">
+    <div class>
+        <div>
+        <br>
+        <h5>{{menu.name}}</h5>
+        <h5>{{menu.description}}</h5>
+        <h5>{{menu.cost}}</h5>
+        <h5>{{menu.snap}}</h5>
+        {%for spice in menu.ingredients.all%}
+        <h5>ingredients: {{spice.name}}</h5>
+        {%endfor%}
+        <h5>{{menu.status}}</h5>
+        <h5>{{menu.cook}}</h5>
+        {%endfor%}
+        </div>
+    </div>
+</div>
+{%endblock%}
