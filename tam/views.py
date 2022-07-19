@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from tam.email import orderinfo_email
 from tam.models import Menu, Profile,Preorder
 import datetime as dt
 from datetime import datetime 
@@ -36,6 +37,9 @@ def menu(request,menu_id):
             date = preform.cleaned_data['date']
             order_info = Preorder(date=date)
             order_info.save()
+            orderinfo_email(date)
+            emailmsg = orderinfo_email(date)
+            print(emailmsg)
             HttpResponseRedirect('preorder',menu.id)
             print('preorder valid!')
     else:
