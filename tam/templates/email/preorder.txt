@@ -1,0 +1,6 @@
+Hello, {{name}}
+
+Someone has placed an order at TamtaMureen. Wanna head over to your profile and check it out?
+You can use <a href="https://tamtamureen.herokuapp.com/user/1">this link</a>.
+
+Cheers!
