@@ -16,5 +16,6 @@ urlpatterns = [
     path('user/profile/<user_id>/',views.profile,name='profile'),
 
     path('',views.home,name='home'),
-    path('menu/<menu_id>',views.menu,name='menu')
+    path('menu/<menu_id>',views.menu,name='menu'),
+    path('menus/search-by-ingredient-results',views.search_by_ingredient,name='search-results')
 ]
