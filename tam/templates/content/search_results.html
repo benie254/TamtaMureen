@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+{%block content%}
+<div class="container">
+    <div class>
+        {%if searched_menus%}
+        <p>We found {{searched_menus|length}} results for '{{message}}'</p>
+        {%else%}
+        <p>We found 0 results for '{{message}}'</p>
+        {%endif%}
+        <div>
+        <br>
+        {%if searched_menus%}
+        {% for item in searched_menus %}
+        <h5>{{item.name}}</h5>
+        <h5>{{item.description}}</h5>
+        <h5>{{item.cost}}</h5>
+        <h5>{{item.snap}}</h5>
+        {% for spice in item.ingredients.all %}
+        <h5>ingredients: {{spice.name}}</h5>
+        {%endfor%}
+        <h5>{{item.status}}</h5>
+        <h5>{{item.cook}}</h5>
+        {% endfor %}
+        {%endif%}
+        </div>
+    </div>
+</div>
+{%endblock%}
