@@ -10,7 +10,6 @@ def profile(request,user_id):
     user = request.user
     username = user.username 
     message = 'Welcome, ' + username
-    print(details)
     return render(request,'user/profile.html',{"profile":profile,"details":details,"message":message})
 
 def home(request):
