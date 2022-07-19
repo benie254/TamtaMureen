@@ -32,7 +32,7 @@ def menu(request,menu_id):
 
 def search_by_ingredient(request):
     if 'menu' in request.GET and request.GET["menu"]:
-        ingredient_term = request.GET("menu")
+        ingredient_term = request.GET.get("menu")
         searched_menus = Menu.search_by_ingredient(ingredient_term)
         message = f"{ingredient_term}"
         return render(request,'content/search_results.html',{"message":message,"searched_menus":searched_menus})
