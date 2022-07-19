@@ -34,13 +34,15 @@ def menu(request,menu_id):
     if request.method == 'POST':
         preform = PreorderForm(request.POST)
         if preform.is_valid():
+            print(order_info)
             name = preform.cleaned_data['name']
             date = preform.cleaned_data['date']
-            order_info = Preorder(date=date)
+            order_info = Preorder(date=date,name=name)
             order_info.save()
             orderinfo_email(date)
             emailmsg = orderinfo_email(date)
             print(emailmsg)
+            
             HttpResponseRedirect('preorder',menu.id)
             print('preorder valid!')
     else:
