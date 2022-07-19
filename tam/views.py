@@ -4,6 +4,7 @@ from tam.models import Menu, Profile
 import datetime as dt
 from datetime import datetime 
 import time 
+from tam.forms import PreorderForm
 
 
 # Create your views here.
@@ -28,7 +29,13 @@ def home(request):
 
 def menu(request,menu_id):
     menu = Menu.objects.all().filter(pk=menu_id)
-    return render(request,'content/menu.html',{"menu":menu})
+    if request.method == 'POST':
+        preform = PreorderForm(request.POST)
+        if preform.is_valid():
+            print('preorder valid!')
+    else:
+        preform = PreorderForm()
+    return render(request,'content/menu.html',{"menu":menu,"preform":preform})
 
 def search_by_ingredient(request):
     if 'menu' in request.GET and request.GET["menu"]:
@@ -43,4 +50,6 @@ def search_by_ingredient(request):
 def preorder(request,menu_id):
     menu = Menu.objects.all().filter(pk=menu_id)
     user = request.user 
+
+    
     return render(request,'content/pre-order.html',{})
