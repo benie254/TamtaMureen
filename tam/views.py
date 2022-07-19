@@ -61,4 +61,4 @@ def preorder(request,menu_id):
     user = request.user 
 
     
-    return render(request,'content/pre-order.html',{})
+    return render(request,'content/pre-order.html',{"meu":menu,"user":user})
