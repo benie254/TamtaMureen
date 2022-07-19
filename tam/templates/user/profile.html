@@ -11,12 +11,12 @@
         <br>
         </div>
 
-        {%for details in details%}
+        {%if details%}
         <h5>{{details.bio}}</h5>
         <h5>{{details.address}}</h5>
         <h5>{{details.mobile_no}}</h5>
         <h5>{{details.status}}</h5>
-        {%endfor%}
+        {%endif%}
     </div>
 </div>
 {%endblock%}
