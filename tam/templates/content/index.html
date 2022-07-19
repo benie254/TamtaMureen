@@ -19,6 +19,7 @@
         {%endfor%}
         <h5>{{item.status}}</h5>
         <h5>{{item.cook}}</h5>
+        <p><a href="{% url 'menu' item.id %}">View details</a></p>
         {%endfor%}
         </div>
     </div>
