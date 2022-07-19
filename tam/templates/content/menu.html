@@ -7,15 +7,17 @@
     <div class>
         <div>
         <br>
-        <h5>{{menu.name}}</h5>
-        <h5>{{menu.description}}</h5>
-        <h5>{{menu.cost}}</h5>
-        <h5>{{menu.snap}}</h5>
-        {%for spice in menu.ingredients.all%}
+        {%for item in menu%}
+        <h5>{{item.name}}</h5>
+        <h5>{{item.description}}</h5>
+        <h5>{{item.cost}}</h5>
+        <h5>{{item.snap}}</h5>
+        {%for spice in item.ingredients.all%}
         <h5>ingredients: {{spice.name}}</h5>
         {%endfor%}
-        <h5>{{menu.status}}</h5>
-        <h5>{{menu.cook}}</h5>
+        <h5>{{item.status}}</h5>
+        <h5>{{item.cook}}</h5>
+        {%endfor%}
         </div>
     </div>
 </div>
