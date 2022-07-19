@@ -48,7 +48,7 @@ class ingredient(models.Model):
 class Menu(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
-    cost = models.DecimalField(decimal_places=2)
+    cost = models.DecimalField(decimal_places=2,max_digits=3)
     snap = CloudinaryField('Menu photo')
     CHOICES = (('cooking','cooking',),('awaiting request','awaiting request'),('available','available'))
     status = models.CharField(max_length=60,choices=CHOICES)
