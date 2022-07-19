@@ -20,3 +20,7 @@ def home(request):
 
     menus = Menu.objects.all()
     return render(request,'content/index.html',{"message":message,"menus":menus})
+
+def menu(request,menu_id):
+    menu = Menu.objects.all().filter(pk=menu_id)
+    return render(request,'content/menu.html',{"menu":menu})
