@@ -39,3 +39,8 @@ def search_by_ingredient(request):
     else:
         message = "You haven't searched anything yet."
         return render(request,'content/search_results.html',{"message":message})
+
+def preorder(request,menu_id):
+    menu = Menu.objects.all().filter(pk=menu_id)
+    user = request.user 
+    return render(request,'content/pre-order.html',{})
