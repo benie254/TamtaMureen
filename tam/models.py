@@ -82,3 +82,9 @@ class Menu(models.Model):
     def update_menu(self):
         updated_menu = self.update(name=self.name,description=self.description,snap=self.snap,status=self.status)
         return updated_menu
+
+
+class Preorder(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    menu = models.ForeignKey(Menu,on_delete=models.CASCADE,null=True)
+    date = models.DateField()
