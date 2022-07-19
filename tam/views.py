@@ -6,7 +6,7 @@ from tam.models import Profile
 # Create your views here.
 def profile(request,user_id):
     profile = User.objects.all().filter(pk=user_id)
-    details = Profile.objects.filter(pk=user_id)
+    details = Profile.objects.all().last()
     user = request.user
     username = user.username 
     message = 'Welcome, ' + username
