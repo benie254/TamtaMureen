@@ -29,3 +29,13 @@ def home(request):
 def menu(request,menu_id):
     menu = Menu.objects.all().filter(pk=menu_id)
     return render(request,'content/menu.html',{"menu":menu})
+
+def search_by_ingredient(request):
+    if 'menu' in request.GET and request.GET["menu"]:
+        ingredient_term = request.GET("menu")
+        searched_menus = Menu.search_by_ingredient(ingredient_term)
+        message = f"{ingredient_term}"
+        return render(request,'content/search_results.html',{"message":message,"searched_menus":searched_menus})
+    else:
+        message = "You haven't searched anything yet."
+        return render(request,'content/search_results.html',{"message":message})
