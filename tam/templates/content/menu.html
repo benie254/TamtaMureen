@@ -17,6 +17,7 @@
         {%endfor%}
         <h5>{{item.status}}</h5>
         <h5>{{item.cook}}</h5>
+        <p><a href="{%url 'pre-order' item.id%}">Pre-order?</a></p>
         {%endfor%}
         </div>
     </div>
