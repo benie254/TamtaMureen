@@ -1,6 +1,7 @@
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from tam.models import Menu, Profile 
+from tam.models import Menu, Profile,Preorder
 import datetime as dt
 from datetime import datetime 
 import time 
@@ -32,6 +33,10 @@ def menu(request,menu_id):
     if request.method == 'POST':
         preform = PreorderForm(request.POST)
         if preform.is_valid():
+            date = preform.cleaned_data['date']
+            order_info = Preorder(date=date)
+            order_info.save()
+            HttpResponseRedirect('preorder',menu.id)
             print('preorder valid!')
     else:
         preform = PreorderForm()
