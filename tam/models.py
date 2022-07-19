@@ -65,7 +65,7 @@ class Menu(models.Model):
 
     @classmethod
     def search_by_ingredient(cls, ingredient_term):
-        menu = cls.objects.filter(ingredients__name=ingredient_term)
+        menu = cls.objects.filter(ingredients__name__icontains=ingredient_term)
         return menu 
 
     @classmethod 

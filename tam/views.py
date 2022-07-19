@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from tam.models import Menu, Profile 
 import datetime as dt
+from datetime import datetime 
+import time 
 
 
 # Create your views here.
@@ -16,6 +18,7 @@ def profile(request,user_id):
 
 def home(request):
     date_today = dt.date.today()
+    # date_today = datetime.now()  # prints both date & time using settings local time
     user = request.user
     username = user.username 
     message = 'Welcome, ' + username 
