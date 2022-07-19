@@ -10,7 +10,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length=250)
     address = models.CharField(max_length=60)
     profile_photo = CloudinaryField('Profile photo')
-    mobile_no = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
+    mobile_no = models.PositiveIntegerField()
     CHOICES = (('active','active'),('away','away'))
     status = models.CharField(max_length=60,choices=CHOICES)
 
@@ -48,6 +48,7 @@ class ingredient(models.Model):
 class Menu(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
+    cost = models.DecimalField(decimal_places=2)
     snap = CloudinaryField('Menu photo')
     CHOICES = (('cooking','cooking',),('awaiting request','awaiting request'),('available','available'))
     status = models.CharField(max_length=60,choices=CHOICES)
