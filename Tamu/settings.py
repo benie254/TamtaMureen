@@ -78,6 +78,7 @@ INSTALLED_APPS = [
 
     'django_registration',
     'bootstrap5',
+    'cloudinary'
 ]
 
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')

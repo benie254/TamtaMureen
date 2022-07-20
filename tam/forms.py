@@ -11,4 +11,4 @@ class PreorderForm(forms.Form):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('bio','profile_photo')
+        fields = ('bio')

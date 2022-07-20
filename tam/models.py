@@ -9,7 +9,7 @@ class Profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     bio = models.CharField(max_length=250)
     address = models.CharField(max_length=60)
-    profile_photo = CloudinaryField('Profile photo')
+    profile_photo = CloudinaryField('Profile photo',null=True)
     mobile_no = models.PositiveIntegerField()
     CHOICES = (('active','active'),('away','away'))
     status = models.CharField(max_length=60,choices=CHOICES)

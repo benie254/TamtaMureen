@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 {%load static%}
+{%load bootstrap5%}
 
 
 
@@ -11,12 +12,14 @@
         <br>
         </div>
 
-        {%if details%}
+        {%for details in details%}
         <h5>{{details.bio}}</h5>
-        <h5>{{details.address}}</h5>
-        <h5>{{details.mobile_no}}</h5>
-        <h5>{{details.status}}</h5>
-        {%endif%}
+        <h5>{{details.profile_photo}}</h5>
+        {%endfor%}
+        <form action="{%url 'profile' user.id%}" method="post" enctype="multipart/form-data">
+            {%csrf_token%} {%bootstrap_form proform layout='inline'%}
+            <input type="submit" value="Preorder">
+        </form>
     </div>
 </div>
 {%endblock%}
