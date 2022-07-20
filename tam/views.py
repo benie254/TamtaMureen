@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from tam.email import orderinfo_email
 from tam.models import Menu, Profile,Preorder
@@ -36,6 +36,7 @@ def menu(request,menu_id):
     if request.method == 'POST':
         preform = PreorderForm(request.POST)
         if preform.is_valid():
+            print('preorder valid!')
             name = preform.cleaned_data['name']
             date = preform.cleaned_data['date']
             order_info = Preorder(date=date,name=name)
@@ -47,15 +48,13 @@ def menu(request,menu_id):
             emailmsg = orderinfo_email(name,date,email)
             print(emailmsg)
             
-            HttpResponseRedirect('checkout',menu_id)
-            print('preorder valid!')
+            return redirect('checkout')
     else:
         preform = PreorderForm()
     
     return render(request,'content/menu.html',{"menu":menu,"preform":preform})
 
-def checkout(request,menu_id):
-    menu = Menu.objects.all().filter(pk=menu_id)
+def checkout(request):
     preorder = Preorder.objects.all().last()
     return render(request,'content/checkout.html',{"menu":menu,"preorder":preorder})
 
@@ -78,10 +77,3 @@ def search_by_ingredient(request):
     else:
         message = "You haven't searched anything yet."
         return render(request,'content/search_results.html',{"message":message})
-
-def preorder(request,menu_id):
-    menu = Menu.objects.all().filter(pk=menu_id)
-    user = request.user 
-
-    
-    return render(request,'content/pre-order.html',{"meu":menu,"user":user})
