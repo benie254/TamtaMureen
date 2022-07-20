@@ -47,7 +47,7 @@ def menu(request,menu_id):
             emailmsg = orderinfo_email(name,date,email)
             print(emailmsg)
             
-            HttpResponseRedirect('home')
+            HttpResponseRedirect('checkout',menu_id)
             print('preorder valid!')
     else:
         preform = PreorderForm()
