@@ -54,6 +54,11 @@ def menu(request,menu_id):
     
     return render(request,'content/menu.html',{"menu":menu,"preform":preform})
 
+def checkout(request,menu_id):
+    menu = Menu.objects.all().filter(pk=menu_id)
+    preorder = Preorder.objects.all().last()
+    return render(request,'content/checkout.html',{"menu":menu,"preorder":preorder})
+
 def sendpreorder(request):
     name = request.POST.get('name')
     date = request.POST.get('date')
