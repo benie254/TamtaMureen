@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from tam.email import orderinfo_email
@@ -31,23 +31,38 @@ def home(request):
 
 def menu(request,menu_id):
     menu = Menu.objects.all().filter(pk=menu_id)
+    # preform = PreorderForm()
+
     if request.method == 'POST':
         preform = PreorderForm(request.POST)
         if preform.is_valid():
-            print(order_info)
             name = preform.cleaned_data['name']
             date = preform.cleaned_data['date']
             order_info = Preorder(date=date,name=name)
             order_info.save()
-            orderinfo_email(date)
-            emailmsg = orderinfo_email(date)
+            email = 'beniewrites@gmail.com'
+            
+            print(order_info)
+            orderinfo_email(name,date,email)
+            emailmsg = orderinfo_email(name,date,email)
             print(emailmsg)
             
-            HttpResponseRedirect('preorder',menu.id)
+            HttpResponseRedirect('home')
             print('preorder valid!')
     else:
         preform = PreorderForm()
+    
     return render(request,'content/menu.html',{"menu":menu,"preform":preform})
+
+def sendpreorder(request):
+    name = request.POST.get('name')
+    date = request.POST.get('date')
+    email = request.POST.get('email')
+    orderinfo = Preorder(name=name,date=date,email=email)
+    orderinfo.save()
+    orderinfo_email(name,email)
+    data = {'success':'A preorder has been placed!'}
+    return JsonResponse(data)
 
 def search_by_ingredient(request):
     if 'menu' in request.GET and request.GET["menu"]:
