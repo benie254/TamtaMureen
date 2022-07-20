@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+{%block content%}
+<div class="container">
+    <div class>
+        <div>
+        <br>
+        <h6>Your preorder was successful!</h6>
+        <h4>Here are your order details</h4>
+        {%for item in menu%} 
+        {{meal.name}}
+        {{meal.cost}}
+        {%endfor%} 
+
+        {%for detail in preorder%}
+        {{detail.name}}
+        {{detail.date}}
+        {%endfor%} 
+        </div>
+    </div>
+</div>
+{%endblock%}
