@@ -1,4 +1,5 @@
-from django import forms 
+from django import forms
+from tam.models import Profile 
 
 
 class PreorderForm(forms.Form):
@@ -6,3 +7,8 @@ class PreorderForm(forms.Form):
     date = forms.DateField(
         widget=forms.SelectDateWidget
     )
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('bio','profile_photo')
