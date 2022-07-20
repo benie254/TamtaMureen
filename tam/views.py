@@ -21,7 +21,7 @@ def profile(request,user_id):
             print('preorder valid!')
             bio = proform.cleaned_data['bio']
             profile_photo = proform.cleaned_data['profile_photo']
-            profile_info = Preorder(bio=bio,profile_photo=profile_photo)
+            profile_info = Profile(bio=bio,profile_photo=profile_photo)
             profile_info.save()
             print(profile_info)
             return redirect('profile',user_id)
