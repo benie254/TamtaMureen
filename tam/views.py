@@ -6,18 +6,32 @@ from tam.models import Menu, Profile,Preorder
 import datetime as dt
 from datetime import datetime 
 import time 
-from tam.forms import PreorderForm
+from tam.forms import PreorderForm, ProfileForm
 
 
 # Create your views here.
 def profile(request,user_id):
     profile = User.objects.all().filter(pk=user_id)
-    details = Profile.objects.all().last()
+    details = Profile.objects.all().filter(pk=user_id)
+    updated_details = Profile.objects.all().last()
+
+    if request.method == 'POST':
+        proform = ProfileForm(request.POST)
+        if proform.is_valid():
+            print('preorder valid!')
+            bio = proform.cleaned_data['bio']
+            profile_photo = proform.cleaned_data['profile_photo']
+            profile_info = Preorder(bio=bio,profile_photo=profile_photo)
+            profile_info.save()
+            print(profile_info)
+            return redirect('profile',user_id)
+    else:
+        proform = ProfileForm()
 
     user = request.user
     username = user.username 
     message = 'Welcome, ' + username
-    return render(request,'user/profile.html',{"profile":profile,"details":details,"message":message})
+    return render(request,'user/profile.html',{"profile":profile,"details":details,"message":message,"updated_details":updated_details,})
 
 def home(request):
     date_today = dt.date.today()
