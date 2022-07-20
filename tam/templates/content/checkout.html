@@ -14,9 +14,9 @@
         {{meal.cost}}
         {%endfor%} 
 
-        {%for detail in preorder%}
-        {{detail.name}}
-        {{detail.date}}
+        {%if preorder%}
+        {{preorder.name}}
+        {{preorder.date}}
         {%endfor%} 
         </div>
     </div>
