@@ -15,7 +15,7 @@ urlpatterns = [
     path('accounts/profile',auth_views.LoginView.as_view(template_name='registration/login_success.html'),name='signin-success'),
     path('user/profile/<user_id>/',views.profile,name='profile'),
 
-    path('',views.home,name='home'),
+    path('home',views.home,name='home'),
     path('menu/<menu_id>',views.menu,name='menu'),
     path('menus/search-by-ingredient-results',views.search_by_ingredient,name='search-results'),
     path('menu/pre-order/checkout',views.checkout,name='checkout'),
