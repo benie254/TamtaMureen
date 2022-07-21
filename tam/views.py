@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from tam.email import orderinfo_email
-from tam.models import Menu, Profile,Preorder
+from tam.models import Menu, Profile,Preorder, Super
 import datetime as dt
 from datetime import datetime 
 import time 
@@ -47,6 +47,10 @@ def updatebio(request):
         proform = ProfileForm()
     
     return render(request,'user/update-bio.html',{'proform':proform})
+
+def landing(request):
+    super = Super.objects.all().last()
+    return render(request,'content/landing.html',{"super":super})
 
 def home(request):
     date_today = dt.date.today()
