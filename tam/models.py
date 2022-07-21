@@ -7,12 +7,12 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 # Create your models here.
 class Profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    bio = models.CharField(max_length=250)
-    address = models.CharField(max_length=60)
+    bio = models.CharField(max_length=250,null=True)
+    address = models.CharField(max_length=60,null=True)
     profile_photo = CloudinaryField('Profile photo',null=True)
-    mobile_no = models.PositiveIntegerField()
+    mobile_no = models.PositiveIntegerField(null=True)
     CHOICES = (('active','active'),('away','away'))
-    status = models.CharField(max_length=60,choices=CHOICES)
+    status = models.CharField(max_length=60,choices=CHOICES,null=True)
 
     def __str__(self):
         return self.bio

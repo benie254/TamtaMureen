@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load bootstrap5%}
+
+
+
+{%block content%}
+<div class="container">
+    <div class>
+        <div>
+            <h1 class="text-center">{{message}}</h1>
+        <br>
+        </div>
+        <form action="{%url 'profile' user.id%}" method="post" enctype="multipart/form-data">
+    {%csrf_token%} {%bootstrap_form proform layout='inline'%}
+    <input type="submit" value="Preorder">
+        </form>
+        </div>
+        </div>
+        {% endblock %}

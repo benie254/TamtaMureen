@@ -20,7 +20,7 @@ def profile(request,user_id):
         if proform.is_valid():
             print('profile valid!')
             bio = proform.cleaned_data['bio']
-            profile_info = Profile(bio=bio)
+            profile_info = Profile(bio=bio,)
             profile_info.save()
             print(profile_info)
             return redirect('profile',user_id)
@@ -31,6 +31,22 @@ def profile(request,user_id):
     username = user.username 
     message = 'Welcome, ' + username
     return render(request,'user/profile.html',{"profile":profile,"details":details,"message":message,"updated_details":updated_details,"proform":proform})
+
+def updatebio(request):
+    user = request.user
+    if request.method == 'POST':
+        proform = ProfileForm(request.POST)
+        if proform.is_valid():
+            print('profile valid!')
+            bio = proform.cleaned_data['bio']
+            profile_info = Profile(bio=bio,)
+            profile_info.save()
+            print(profile_info)
+            return redirect('profile',user.id)
+    else:
+        proform = ProfileForm()
+    
+    return render(request,'user/update-bio.html',{'proform':proform})
 
 def home(request):
     date_today = dt.date.today()
