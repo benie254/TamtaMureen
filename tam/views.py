@@ -1,4 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from tam.email import orderinfo_email
@@ -10,6 +11,7 @@ from tam.forms import PreorderForm, ProfileForm
 
 
 # Create your views here.
+@login_required(login_url='/accounts/login/')
 def profile(request,user_id):
     profile = User.objects.all().filter(pk=user_id)
     details = Profile.objects.all().filter(pk=user_id)
@@ -32,6 +34,7 @@ def profile(request,user_id):
     message = 'Welcome, ' + username
     return render(request,'user/profile.html',{"profile":profile,"details":details,"message":message,"updated_details":updated_details,"proform":proform})
 
+@login_required(login_url='/accounts/login/')
 def updatebio(request):
     user = request.user
     if request.method == 'POST':
@@ -62,6 +65,7 @@ def home(request):
     menus = Menu.objects.all()
     return render(request,'content/index.html',{"message":message,"menus":menus,"date_today":date_today})
 
+@login_required(login_url='/accounts/login/')
 def menu(request,menu_id):
     menu = Menu.objects.all().filter(pk=menu_id)
     # preform = PreorderForm()
