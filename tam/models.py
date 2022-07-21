@@ -5,6 +5,12 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 # Create your models here.
+class Super(models.Model):
+    profile_photo = CloudinaryField('Profile photo',null=True)
+    CHOICES = (('active','active'),('away','away'))
+    bio = models.CharField(max_length=250,null=True)
+    status = models.CharField(max_length=60,choices=CHOICES,null=True)
+
 class Profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     bio = models.CharField(max_length=250,null=True)
