@@ -1,3 +1,12 @@
 .landing-container{
     background-color:#10002b;
 }
+.landing-container .carousel{
+    margin-left:35%;
+}
+.landing-container img{
+    height:200px;
+    width:300px;
+    margin-top:1.5%;
+    margin-bottom:1.5%;
+}
