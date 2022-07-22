@@ -27,10 +27,48 @@
       <svg aria-label="Search" color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewBox="0 0 24 24" width="16"><path d="M19 10.5A8.5 8.5 0 1110.5 2a8.5 8.5 0 018.5 8.5z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line></svg>
   </button>
   </form>
-  <h5>Top ingredients</h5>
+  <div class="landing-ingredients">
+    <h6>Top ingredients</h6>
+  {%for item in ingredients%}
+  {%for spice in item.ingredients.all%}
+    <img src="https://res.cloudinary.com/benie/image/upload/v1658467066/casserole-dish-2776735_640_dikolx.jpg" width="20" height="20"> {{spice.name}}
+        {%endfor%}
+  {%endfor%}
+  </div>
 </div>
-<hr>
-<div class="container landing-container3">
-  <h1>Meet Maureen</h1>
+
+<div class="container-fluid landing-container3">
+  {%if super%}
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{super.profile_photo.url}}" class="img-fluid rounded-start" alt="..." width="200" height="200">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Meet Maureen</h5>
+          <p class="card-text">{{super.about_me}}</p>
+          <p class="card-text"><small class="text-muted">Status: {{super.status}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%else%} 
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://res.cloudinary.com/benie/image/upload/v1658180611/wikrlzpmakvtwcjssxlm.jpg" class="img-fluid rounded-start" alt="..." width="200" height="200">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">About me</h5>
+          <p class="card-text">I am a teacher and mother of four, who loves and enjoys cooking. Welcome to my kitchen!</p>
+          <p class="card-text"><small class="text-muted">Status: <span class="super-status">away</span></small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endif%}
+  
 </div>
 {%endblock%}

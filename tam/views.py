@@ -53,7 +53,8 @@ def updatebio(request):
 
 def landing(request):
     super = Super.objects.all().last()
-    return render(request,'content/landing.html',{"super":super})
+    ingredients = Menu.objects.all()
+    return render(request,'content/landing.html',{"super":super,"ingredients":ingredients})
 
 def home(request):
     date_today = dt.date.today()
