@@ -4,21 +4,27 @@
 
 
 {%block content%} 
-<div class="container-fluid">
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" style="margin-left:35%;margin-top:1%;margin-bottom:1%;">
+<div class="container-fluid" style="background-color:#10002b;">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" style="margin-left:35%;">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://res.cloudinary.com/benie/image/upload/v1658379897/dough-943245_1920_vf0glg.jpg" height="200" width="300" alt="...">
+        <img src="https://res.cloudinary.com/benie/image/upload/v1658379897/dough-943245_1920_vf0glg.jpg" height="200" width="300" style="margin-top:1.5%;margin-bottom:1.5%;" alt="...">
       </div>
       <div class="carousel-item" style="height:200;">
-        <img src="https://res.cloudinary.com/benie/image/upload/v1658379904/chapati-489254_1920_qkyxrm.jpg" height="200" width="300" alt="...">
+        <img src="https://res.cloudinary.com/benie/image/upload/v1658379904/chapati-489254_1920_qkyxrm.jpg" height="200" width="300" style="margin-top:1.5%;margin-bottom:1.5%;" alt="...">
       </div>
       <div class="carousel-item" style="height:200;">
-        <img src="https://res.cloudinary.com/benie/image/upload/v1658380042/swahili-5992165_1920_i4nzqj.jpg" height="200" width="300" alt="...">
+        <img src="https://res.cloudinary.com/benie/image/upload/v1658380042/swahili-5992165_1920_i4nzqj.jpg" height="200" width="300" style="margin-top:1.5%;margin-bottom:1.5%;" alt="...">
       </div>
     </div>
   </div>
-  <hr>
-
+</div>
+<div class="container">
+  <form class="d-flex" role="search" action="{% url 'search-results' %}">
+    <button class="btn btn-sm btn-outline-info" type="submit">
+        <svg aria-label="Search" color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewBox="0 0 24 24" width="16"><path d="M19 10.5A8.5 8.5 0 1110.5 2a8.5 8.5 0 018.5 8.5z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line></svg>
+    </button>
+    <input class="form-control me-2" type="search" placeholder="Search menu by ingredient" name="menu">
+  </form>
 </div>
 {%endblock%}
