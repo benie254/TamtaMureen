@@ -4,7 +4,7 @@
 
 
 {%block content%} 
-<div class="container-fluid" style="background-color:#10002b;">
+<div class="container-fluid landing-container" style="background-color:#10002b;">
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" style="margin-left:35%;">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -19,7 +19,7 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container landing-container2">
   <form class="d-flex" role="search" action="{% url 'search-results' %}">
     <input class="form-control me-2" type="search" placeholder="Search menu by ingredient" name="menu">
     <button class="btn btn-sm btn-outline-info" type="submit">
