@@ -1,0 +1,15 @@
+Hello, Maureen
+
+You have received the following message on TamtaMureen:
+
+--start of message-- 
+
+{{message}} 
+
+--end of message--
+
+You can reply to this message using the sender details, i.e:</p>
+Sender: {{name}}
+Sender email: {{email}}
+
+Cheers!

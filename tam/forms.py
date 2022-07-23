@@ -1,5 +1,5 @@
 from django import forms
-from tam.models import Profile 
+from tam.models import Contact, Profile 
 
 
 class PreorderForm(forms.Form):
@@ -12,3 +12,8 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('bio',)
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('name','email','message')

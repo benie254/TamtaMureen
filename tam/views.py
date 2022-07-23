@@ -2,12 +2,12 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from tam.email import orderinfo_email
-from tam.models import Menu, Profile,Preorder, Super
+from tam.email import contact_email, orderinfo_email
+from tam.models import Contact, Menu, Profile,Preorder, Super
 import datetime as dt
 from datetime import datetime 
 import time 
-from tam.forms import PreorderForm, ProfileForm
+from tam.forms import ContactForm, PreorderForm, ProfileForm
 
 
 # Create your views here.
@@ -54,7 +54,31 @@ def updatebio(request):
 def landing(request):
     super = Super.objects.all().last()
     ingredients = Menu.objects.all()
-    return render(request,'content/landing.html',{"super":super,"ingredients":ingredients})
+
+    if request.method == 'POST':
+        contactform = ContactForm(request.POST)
+        if contactform.is_valid():
+            print('contact valid!')
+            name = contactform.cleaned_data['name']
+            email = contactform.cleaned_data['email']
+            message = contactform.cleaned_data['message']
+            contact = Contact(name=name,email=email,message=message)
+            contact.save()
+            receiver = 'beniewrites@gmail.com'
+            
+            print(message)
+            contact_email(name,email,message,receiver)
+            emailmsg = contact_email(name,email,message,receiver)
+            print(emailmsg)
+            
+            return redirect('contact-success')
+    else:
+        contactform = ContactForm()
+    return render(request,'content/landing.html',{"super":super,"ingredients":ingredients,"contactform":contactform})
+
+def contact(request):
+    contact = Contact.objects.all().last()
+    return render(request,'content/contact_success.html',{"contact":contact})
 
 def home(request):
     date_today = dt.date.today()

@@ -21,6 +21,7 @@ urlpatterns = [
     path('menus/search-by-ingredient-results',views.search_by_ingredient,name='search-results'),
     path('menu/pre-order/checkout',views.checkout,name='checkout'),
     path('user/update-bio',views.updatebio,name='update-bio'),
+    path('user/contact-success',views.contact,name='contact-success'),
 
     # url(r'^ajax/preorder/$',views.sendpreorder,name='send-preorder'),
 ]

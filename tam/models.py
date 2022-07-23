@@ -6,10 +6,12 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Super(models.Model):
+    name = models.CharField(max_length=60,null=True)
     about_me = models.CharField(max_length=500,null=True)
     profile_photo = CloudinaryField('Profile photo',null=True)
     address = models.CharField(max_length=150,null=True)
-    mobile_no = models.PositiveIntegerField(null=True)
+    email = models.EmailField(null=True)
+    mobile_no = models.IntegerField(null=True)
     CHOICES = (('active','active'),('away','away'))
     status = models.CharField(max_length=60,choices=CHOICES,null=True)
 
@@ -96,3 +98,8 @@ class Preorder(models.Model):
     name = models.CharField(max_length=60,null=True)
     date = models.DateField(null=True)
     email = models.EmailField(null=True)
+
+class Contact(models.Model):
+    name = models.CharField(max_length=60,default='')
+    email = models.EmailField(max_length=60,default='')
+    message = models.TextField(max_length=60,default='')

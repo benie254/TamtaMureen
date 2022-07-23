@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load bootstrap5%}
+
+
+
+{%block content%}
+<div class="container-fluid contact-success-container">
+    <img src="https://res.cloudinary.com/benie/image/upload/v1658180611/wikrlzpmakvtwcjssxlm.jpg" height="30" width="30" alt="">
+    <h1>TamtaMureen</h1>
+    <div class="container">
+        <h3>Message Received!</h3>
+        {%if contact%} 
+        <p>{{contact.name}}, Maureen has received your message.</p>
+        {%else%}
+        <p>Message delivered successfully to Maureen's mailbox.</p>
+        {%endif%}
+        <p>Thank you for reaching out.</p>
+        <a href="/home"><button class="btn btn-light btn-outline-dark btn-lg">
+           Continue to Home
+        </button>
+    </a>
+        or
+        <a href="/">
+        <button class="btn btn-light btn-outline-dark btn-lg">
+            Go back
+        </button>
+    </a>
+    </div>
+</div>
+{%endblock%}
