@@ -1,3 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mingzat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tillana:wght@600&display=swap');
+
+small,button,input,textarea,a,.btn{
+    font-family: 'Merienda', cursive;
+}
+p{
+    font-family: 'Mingzat', sans-serif;
+}
+h1{
+    font-family: 'Marcellus SC', serif; 
+}
+h2{
+    font-family: 'Rozha One', serif;
+}
+h3{
+    font-family: 'Markazi Text', serif;
+}
+h4,h5{
+    font-family: 'Telex', sans-serif;
+    font-weight:bold;
+}
+.navbar-brand,.nav-home{
+    font-family: 'Bowlby One', cursive;
+}
+h6{
+    font-family: 'Tillana', cursive;
+}
+
 body{
     background-color:#F7D488;
 }
@@ -16,6 +52,7 @@ body{
 .nav-admin,.nav-profile,.nav-signout{
     border-style:groove;
     color:black;
+    font-family: 'Rampart One', cursive;
 }
 .nav-admin:hover,.nav-profile:hover,.nav-signout:hover{
     color:#472d30;
