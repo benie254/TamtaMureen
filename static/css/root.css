@@ -1,6 +1,8 @@
+body{
+    background-color:#F7D488;
+}
 .landing-container{
-    background-color:#10002b;
-    padding:6.5%;
+    background-color:#E9F7CA;
 }
 .carousel-inner{
     display:inline-block;
@@ -17,7 +19,7 @@
     text-align:center;
 }
 .landing-container2 form{
-    margin-top:1.5%;
+    margin-top:1.5%; 
 }
 .landing-container2 h6{
     margin-top:1.5%;
@@ -25,7 +27,7 @@
 .landing-container3{
     text-align:center;
     margin-top:1.5%;
-    background-color:#10002b;
+    background-color:#E9F7CA;
 }
 .landing-container3 .card{
     display:inline-block;
@@ -36,9 +38,12 @@
     border-top-left-radius: 15%;
     border-top-right-radius: 15%;
     position: relative;
-    background-color: #10002b;
+    background-color: #E9F7CA;
 }
 .container-contact input{
+    margin:1%;
+}
+.container-contact button{
     margin:1%;
 }
 .contact-title{
@@ -53,4 +58,11 @@ footer{
 }
 .contact-success-container img{
     border-radius: 50%;
+}
+.card img{
+    border-radius: 50%;
+    transition: transform .4s;
+}
+.card img:hover{
+    transform: scale(0.8);
 }

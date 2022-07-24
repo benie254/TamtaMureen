@@ -8,13 +8,13 @@
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://res.cloudinary.com/benie/image/upload/v1658379897/dough-943245_1920_vf0glg.jpg"  alt="Carousel image">
+        <img src="https://res.cloudinary.com/benie/image/upload/v1658379897/dough-943245_1920_vf0glg.jpg" class="rounded" alt="Carousel image">
       </div>
       <div class="carousel-item">
-        <img src="https://res.cloudinary.com/benie/image/upload/v1658379904/chapati-489254_1920_qkyxrm.jpg" alt="Carousel image">
+        <img src="https://res.cloudinary.com/benie/image/upload/v1658379904/chapati-489254_1920_qkyxrm.jpg" class="rounded" alt="Carousel image">
       </div>
       <div class="carousel-item">
-        <img src="https://res.cloudinary.com/benie/image/upload/v1658380042/swahili-5992165_1920_i4nzqj.jpg" alt="Carousel image">
+        <img src="https://res.cloudinary.com/benie/image/upload/v1658380042/swahili-5992165_1920_i4nzqj.jpg" class="rounded" alt="Carousel image">
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
 <div class="container landing-container2">
   <form class="d-flex" role="search" action="{% url 'search-results' %}">
     <input class="form-control me-2" type="search" placeholder="Search menu by ingredient" name="menu">
-    <button class="btn btn-sm btn-outline-info" type="submit">
+    <button class="btn btn-light btn-sm btn-outline-dark" type="submit">
       <svg aria-label="Search" color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewBox="0 0 24 24" width="16"><path d="M19 10.5A8.5 8.5 0 1110.5 2a8.5 8.5 0 018.5 8.5z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line></svg>
   </button>
   </form>
@@ -31,7 +31,7 @@
     <h6>Top ingredients</h6>
   {%for item in ingredients%}
   {%for spice in item.ingredients.all%}
-    <img src="https://res.cloudinary.com/benie/image/upload/v1658467066/casserole-dish-2776735_640_dikolx.jpg" width="20" height="20"> {{spice.name}}
+    <img class="rounded" src="https://res.cloudinary.com/benie/image/upload/v1658467066/casserole-dish-2776735_640_dikolx.jpg" width="20" height="20"> {{spice.name}}
         {%endfor%}
   {%endfor%}
   </div>
@@ -42,7 +42,7 @@
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{{super.profile_photo.url}}" class="img-fluid rounded-start" alt="..." width="200" height="200">
+        <img src="{{super.profile_photo.url}}" class="img-fluid" alt="..." width="200" height="200">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -79,15 +79,15 @@
       <h2 class="contact-title">CONTACT</h2>
     </div>
     <div class="row contact-row">
-      <div class="col col-sm-4 col-contact-form" id="mc_embed_signup">
+      <div class="col col-contact-form" id="mc_embed_signup">
         <h4 class="body-font">Write to me</h4>
         <form action="{%url 'landing' %}" method="post">
           {%csrf_token%} {%bootstrap_form contactform layout='inline'%}
-          <input type="submit" value="Send">
+          <button type="submit" class="btn btn-sm btn-dark btn-outline-light">Send</button>
       </form>
       </div>
      
-      <div class="col col-sm-4 col-address">
+      <div class="col col-address">
         <h4 class="body-font">Find me</h4>
         <p>{{super.address}},</p>
         <p>USA</p>
@@ -98,7 +98,7 @@
       <p>{{super.mobile_no}}</p>
       </div>
       
-      <div class="col col-sm-4 col-map" id="google-maps">
+      <div class="col col-map" id="google-maps">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7776084621364!2d36.80240001464705!3d-1.3086869360198807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1059d73023bb%3A0x7f1c4372c902ce24!2sMbagathi%20Way%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1647876624342!5m2!1sen!2ske" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
       
@@ -119,7 +119,7 @@
       <h2 class="contact-title">CONTACT</h2>
     </div>
     <div class="row contact-row">
-      <div class="col col-sm-4 col-contact-form" id="mc_embed_signup">
+      <div class="col col-contact-form" id="mc_embed_signup">
         <h4 class="body-font">Write to me</h4>
         <form action="{%url 'landing' %}" method="post">
           {%csrf_token%} {%bootstrap_form contactform layout='inline'%}
@@ -127,7 +127,7 @@
       </form>
       </div>
      
-      <div class="col col-sm-4 col-address">
+      <div class="col col-address">
         <h4 class="body-font">Find me</h4>
         <p>Ohio,</p>
         <p>USA</p>
@@ -138,7 +138,7 @@
       <p>+2547 08 64 66 67</p>
       </div>
       
-      <div class="col col-sm-4 col-map" id="google-maps">
+      <div class="col col-map" id="google-maps">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7776084621364!2d36.80240001464705!3d-1.3086869360198807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1059d73023bb%3A0x7f1c4372c902ce24!2sMbagathi%20Way%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1647876624342!5m2!1sen!2ske" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
       
