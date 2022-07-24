@@ -1,6 +1,26 @@
 body{
     background-color:#F7D488;
 }
+
+.nav{
+    background-color: #F7D488;
+}
+.nav-home{
+    border-style:ridge;
+    color:black;
+}
+.nav-home:hover{
+    color:#472d30;
+}
+.nav-admin,.nav-profile,.nav-signout{
+    border-style:groove;
+    color:black;
+}
+.nav-admin:hover,.nav-profile:hover,.nav-signout:hover{
+    color:#472d30;
+}
+
+
 .landing-container{
     background-color:#E9F7CA;
 }
