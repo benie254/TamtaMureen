@@ -34,11 +34,11 @@ h6{
     font-family: 'Tillana', cursive;
 }
 
-body{
+.landing-body,.home-card{
     background-color:#F7D488;
 }
 
-.nav{
+.nav,footer{
     background-color: #F7D488;
     opacity:0.9;
 }
@@ -117,10 +117,17 @@ footer{
 .contact-success-container img{
     border-radius: 50%;
 }
-.card img{
+.landing-card img{
     border-radius: 50%;
     transition: transform .4s;
 }
 .card img:hover{
     transform: scale(0.8);
+}
+
+.header{
+    background-color: #F7D488;
+}
+.home-card-btn{
+    float:right;
 }
