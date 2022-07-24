@@ -4,6 +4,7 @@ body{
 
 .nav{
     background-color: #F7D488;
+    opacity:0.9;
 }
 .nav-home{
     border-style:ridge;
