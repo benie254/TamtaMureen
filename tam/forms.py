@@ -3,8 +3,8 @@ from tam.models import Contact, Profile
 
 
 class PreorderForm(forms.Form):
-    name = forms.CharField(max_length=60)
-    date = forms.DateField(
+    your_name = forms.CharField(max_length=60)
+    order_date = forms.DateField(
         widget=forms.SelectDateWidget
     )
 

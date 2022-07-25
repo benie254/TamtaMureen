@@ -29,22 +29,17 @@ h4,h5{
 }
 .navbar-brand,.nav-home{
     font-family: 'Bowlby One', cursive;
+    color:black;
 }
 h6{
-    font-family: 'Tillana', cursive;
+    font-family: 'Tillan', cursive;
 }
 
-.landing-body,.home-card{
-    background-color:#F7D488;
-}
-
-.nav,footer{
-    background-color: #F7D488;
+.nav{
     opacity:0.9;
 }
 .nav-home{
     border-style:ridge;
-    color:black;
 }
 .nav-home:hover{
     color:#472d30;
@@ -59,7 +54,7 @@ h6{
 }
 
 
-.landing-container{
+.landing-container,.landing-container3,.container-contact,#menu-body,#home-body{
     background-color:#E9F7CA;
 }
 .carousel-inner{
@@ -77,7 +72,7 @@ h6{
     text-align:center;
 }
 .landing-container2 form{
-    margin-top:1.5%; 
+    margin:1%; 
 }
 .landing-container2 h6{
     margin-top:1.5%;
@@ -85,7 +80,6 @@ h6{
 .landing-container3{
     text-align:center;
     margin-top:1.5%;
-    background-color:#E9F7CA;
 }
 .landing-container3 .card{
     display:inline-block;
@@ -96,9 +90,8 @@ h6{
     border-top-left-radius: 15%;
     border-top-right-radius: 15%;
     position: relative;
-    background-color: #E9F7CA;
 }
-.container-contact input{
+.container-contact input,#preorder .btn{
     margin:1%;
 }
 .container-contact button{
@@ -121,13 +114,32 @@ footer{
     border-radius: 50%;
     transition: transform .4s;
 }
-.card img:hover{
+.landing-card img:hover{
     transform: scale(0.8);
 }
 
-.header{
+.header,#preorder,.nav,footer,.landing-body,.home-card{
     background-color: #F7D488;
 }
 .home-card-btn{
     float:right;
+}
+.menu-card{
+    width:100%;
+    max-width:400px;
+    column-count: 2;
+    column-gap: 2px;
+}
+#menu-card-img{
+    height:auto;
+    max-height:400px;
+    width:100%;
+    max-width:400px;
+    /* max-width:auto; */
+}
+.menu-status{
+    font-size:x-small;
+}
+#preorder{
+    display:none;
 }

@@ -3,12 +3,12 @@ from django.template.loader import render_to_string
 import smtplib
 
 
-def orderinfo_email(name,date,receiver):
+def orderinfo_email(your_name,order_date,receiver):
     subject = 'A preorder has been placed!'
     sender = 'davinci.monalissa@gmail.com'
 
-    text_content = render_to_string('email/preorder.txt',{"name":name,"date":date})
-    html_content = render_to_string('email/preorder.html',{"name":name,"date":date})
+    text_content = render_to_string('email/preorder.txt',{"name":your_name,"date":order_date})
+    html_content = render_to_string('email/preorder.html',{"name":your_name,"date":order_date})
     msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
     msg.attach_alternative(html_content,'text/html')
     msg.send()

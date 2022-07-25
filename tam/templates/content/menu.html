@@ -4,25 +4,57 @@
 
 
 {%block content%}
-<div class="container">
+<body id="menu-body">
+  
+</body>
+<div class="container menu-container">
     <div class>
         <div>
-        <br>
+        <br><br>
         {%for item in menu%}
-        <h5>{{item.name}}</h5>
-        <h5>{{item.description}}</h5>
-        <h5>{{item.cost}}</h5>
-        <h5>{{item.snap}}</h5>
-        {%for spice in item.ingredients.all%}
-        <h5>ingredients: {{spice.name}}</h5>
-        {%endfor%}
-        <h5>{{item.status}}</h5>
-        <h5>{{item.cook}}</h5>
-        <p>Pre-order?</p>
-        <form action="{%url 'menu' item.id%}" method="post">
-            {%csrf_token%} {%bootstrap_form preform layout='inline'%}
-            <input type="submit" value="Preorder">
-        </form>
+        <div class="row no-gutters">
+            <div class="col-auto">
+                <div class="card menu-card">
+                    <img src="{{item.snap.url}}" class="card-img-top" id='menu-card-img' alt="...">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card-block px-2 menu-card">
+                    <h4 class="card-header menu-card-header">$ <span id="menu-card-span">{{item.cost}}</span> <br>
+                        <span id="menu-card-span"><small class="card-text menu-status">status: {{item.status}}</small></span></h4>
+                    <div class="card-body menu-card-body">
+                      <h5 class="card-title">{{item.name}} </h5>
+                      <p class="card-text">Cooked by {{item.cook}}</p>
+                      <p class="card-text">{{item.description}}</p>
+                      <p class="card-text"></p>
+                        <small class="card-text">ingredients: 
+                            {%for spice in item.ingredients.all%}
+                        {{spice.name}},
+                            {%endfor%}
+                        </small>
+                        <br><br>
+                      <button class="btn menu-card-btn btn-sm btn-light btn-outline-dark" id="preorderBtn" onclick="toggleOrder()">Pre-order?</button>
+                      <br><br>
+                      
+                    </div>
+                  </div>
+                  <br>
+                </div>
+            <div id="preorder"> 
+              <br>
+              <h5>Preorder</h5>
+              <form action="{%url 'menu' item.id%}" method="post">
+                {%csrf_token%} {%bootstrap_form preform%}
+                <button type="submit" class="btn btn-light btn-outline-dark">Place order</button>
+            </form>
+            </div>
+                
+            
+            
+        </div>
+        
+        
         
         {%endfor%} 
         
@@ -30,4 +62,25 @@
         </div>
     </div>
 </div>
+<br><br><br><br><br><br><br>
+
+    <footer>
+      <div class="social">
+        <div class="social-set">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+            <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+          </svg>
+            <a href="htpps://twitter.com" class="sociali" target="_blank" aria-label="Twitter"> <i class="fa fa-twitter fa-fw" title="Twitter"></i> </a>
+            <a href="htpps://github.com" class="sociali" target="_blank" aria-label="GitHub"> <i class="fa fa-github-square fa-fw" title="GitHub"></i> </a>
+            <!-- <a href="htpps://youtube.com" class="sociali" target="_blank" aria-label="YouTube"> <i class="fa fa-youtube fa-fw" title="YouTube"></i> </a> -->
+            <!-- <a href="htpps://medium.com" class="sociali" target="_blank" aria-label="Medium"> <i class="fa fa-medium fa-fw" title="Medium"></i> </a> -->
+            <a href="htpps://instagram.com" class="sociali" target="_blank" aria-label="Instagram"> <i class="fa fa-instagram fa-fw" title="Instagram"></i> </a>
+            <a href="htpps://facebook.com" class="sociali" target="_blank" aria-label="Facebook"> <i class="fa fa-facebook-square fa-fw" title="Facebook"></i> </a>
+            <a href="htpps://flickr.com" class="sociali" target="_blank" aria-label="Flickr"> <i class="fa fa-flickr fa-fw" title="Flickr"></i> </a>
+            <a href="htpps://linkedin.com" class="sociali" target="_blank" aria-label="LinkedIn"> <i class="fa fa-linkedin fa-fw" title="LinkedIn"></i> </a>
+            <a> | &copy;TAMTAMUREEN | 2022</a>
+        </div>
+    </div>
+  </footer>
+
 {%endblock%}

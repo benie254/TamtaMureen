@@ -5,6 +5,9 @@
 
 
 {%block content%}
+<body id="home-body">
+  
+</body>
     
         <div class="header container-fluid">
             <br>
@@ -28,7 +31,7 @@
                   <h5 class="card-title">{{item.name}}</h5>
                   <p class="card-text">$ {{item.cost}}</p>
                   <small class="card-text">status: {{item.status}}</small>
-                  <a href="{% url 'menu' item.id %}" class="btn home-card-btn btn-primary">View details</a>
+                  <a href="{% url 'menu' item.id %}" class="btn home-card-btn btn-sm btn-light btn-outline-dark">View details</a>
                 </div>
               </div>
               {%endfor%}

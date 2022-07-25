@@ -95,8 +95,8 @@ class Menu(models.Model):
 class Preorder(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     menu = models.ForeignKey(Menu,on_delete=models.CASCADE,null=True)
-    name = models.CharField(max_length=60,null=True)
-    date = models.DateField(null=True)
+    your_name = models.CharField(max_length=60,null=True)
+    order_date = models.DateField(null=True)
     email = models.EmailField(null=True)
 
 class Contact(models.Model):

@@ -99,15 +99,15 @@ def menu(request,menu_id):
         preform = PreorderForm(request.POST)
         if preform.is_valid():
             print('preorder valid!')
-            name = preform.cleaned_data['name']
-            date = preform.cleaned_data['date']
-            order_info = Preorder(date=date,name=name)
+            your_name = preform.cleaned_data['your_name']
+            order_date = preform.cleaned_data['order_date']
+            order_info = Preorder(order_date=order_date,your_name=your_name)
             order_info.save()
             email = 'beniewrites@gmail.com'
             
             print(order_info)
-            orderinfo_email(name,date,email)
-            emailmsg = orderinfo_email(name,date,email)
+            orderinfo_email(your_name,order_date,email)
+            emailmsg = orderinfo_email(your_name,order_date,email)
             print(emailmsg)
             
             return redirect('checkout')
