@@ -6,23 +6,25 @@
 <div class="container">
     <div class>
         {%if searched_menus%}
-        <p>We found {{searched_menus|length}} results for '{{message}}'</p>
+        <br> <br>
+        <h2 class="text-center">We found {{searched_menus|length}} results for '{{message}}'</h2>
         {%else%}
-        <p>We found 0 results for '{{message}}'</p>
+        <br> <br>
+        <h4 class="text-center">We found 0 results for this... {{message}}</h4>
         {%endif%}
         <div>
         <br>
         {%if searched_menus%}
         {% for item in searched_menus %}
-        <h5>{{item.name}}</h5>
-        <h5>{{item.description}}</h5>
-        <h5>{{item.cost}}</h5>
-        <h5>{{item.snap}}</h5>
-        {% for spice in item.ingredients.all %}
-        <h5>ingredients: {{spice.name}}</h5>
-        {%endfor%}
-        <h5>{{item.status}}</h5>
-        <h5>{{item.cook}}</h5>
+        <div class="card home-card" style="width: 18rem;">
+            <img src="{{item.snap.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <p class="card-text">$ {{item.cost}}</p>
+              <small class="card-text">status: {{item.status}}</small>
+              <a href="{% url 'menu' item.id %}" class="btn home-card-btn btn-sm btn-light btn-outline-dark">View details</a>
+            </div>
+          </div>
         {% endfor %}
         {%endif%}
         </div>

@@ -15,8 +15,8 @@ from pathlib import Path
 import django_heroku 
 import dj_database_url 
 from decouple import config,Csv 
-import cloudinary 
-import cloudinary.uploader 
+import cloudinary
+import cloudinary.uploader
 import cloudinary.api 
 
 
@@ -78,8 +78,18 @@ INSTALLED_APPS = [
 
     'django_registration',
     'bootstrap5',
-    'cloudinary'
+    'bootstrap4',
+    'crispy_forms',
+    'cloudinary',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_HOST = config('EMAIL_HOST')
@@ -95,7 +105,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+MIDDLEWARE_CLASSES = (
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+)
 
 ROOT_URLCONF = 'Tamu.urls'
 
@@ -190,6 +207,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 cloudinary.config(
     cloud_name='benie',

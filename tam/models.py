@@ -19,7 +19,7 @@ class Super(models.Model):
 class Profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     bio = models.CharField(max_length=250,null=True)
-    profile_photo = CloudinaryField('Profile photo',null=True)
+    profile_photo = CloudinaryField('image', null=True)
     CHOICES = (('active','active'),('away','away'))
     status = models.CharField(max_length=60,choices=CHOICES,null=True)
 
@@ -106,3 +106,9 @@ class Contact(models.Model):
     name = models.CharField(max_length=60,default='')
     email = models.EmailField(max_length=60,default='')
     message = models.TextField(max_length=60,default='')
+
+
+class Quote(models.Model):
+    quote = models.CharField(max_length=2000,default='')
+    author = models.CharField(max_length=60,default='')
+    source = models.URLField(max_length=500,default='')

@@ -23,5 +23,7 @@ urlpatterns = [
     path('user/update-bio',views.updatebio,name='update-bio'),
     path('user/contact-success',views.contact,name='contact-success'),
 
+    path('api/meal-quotes/random',views.RandomMealQuotes.as_view(),name='random-quotes')
+
     # url(r'^ajax/preorder/$',views.sendpreorder,name='send-preorder'),
 ]

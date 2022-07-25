@@ -5,25 +5,56 @@
 
 
 {%block content%}
-<div class="container">
-    <div class>
-        <div>
-            <h1 class="text-center">{{message}}</h1>
+<body id="profile-body">
+    
+</body>
+<div class="container profile-container">
+    <div id="profile-header">
         <br>
-        </div>
+        <div class="row no-gutters">
+            <div class="col-auto col-ppic">
+                <img src="{%static 'photos/avatar-3814049_640.png' %}" id='profile-pic' alt="">
+            </div>
 
-        {%for details in details%}
-        <h5>{{details.bio}}</h5>
-        {%endfor%}
-        <form action="{%url 'profile' user.id%}" method="post" enctype="multipart/form-data">
-            {%csrf_token%} {%bootstrap_form proform layout='inline'%}
-            <input type="submit" value="Preorder">
-        </form>
-        <a href="{%url 'update-bio'%}">Update bio?</a>
-        updated
-        {%if updated_details%}
-        {{updated_details.bio}}
-        {%endif%}
+            <div class="col-auto" id="col-details">
+                <h1>{{username}}</h1>
+                {%if updated_details%}
+                <hp>{{updated_details.bio}}</p>
+                <button type="button" id="bio-btn" class="btn btn-sm btn-light btn-outline-dark" onclick="toggleBio()">Update bio?</button>
+                {%else%}
+                <form method="post"  action="{%url 'profile' user.id%}" enctype="multipart/form-data" id="bio-form">
+                    {%csrf_token%} {%bootstrap_form proform layout='inline'%}
+                    <input type="submit" value="Add bio">
+                </form>
+                {%endif%}
+
+                <form method="post"  action="{%url 'profile' user.id%}" enctype="multipart/form-data" id="bioForm">
+                    {%csrf_token%} {%bootstrap_form proform layout='inline'%}
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+
+            <div class="col-auto"></div>
+        </div> 
+        <br>  <br>
+        <hr>
     </div>
+        
+        <br> 
+        <div class="container">
+
+            <div class="card" style="margin-bottom:2.5%;width:75%;margin-left:10%;margin-top:5%;">
+            <div class="card-header">
+            Random Quote
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>{{quotes.quote}}</p>
+                  <footer><cite title="Author">{{quotes.author}} <small><a id="quote-link" href="{{quotes.source}}">Visit source</a></small></cite></footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+          
 </div>
 {%endblock%}

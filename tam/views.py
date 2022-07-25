@@ -2,12 +2,20 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
+from tam.api.serializers import QuoteSerializer
 from tam.email import contact_email, orderinfo_email
-from tam.models import Contact, Menu, Profile,Preorder, Super
+from tam.models import Contact, Menu, Profile,Preorder, Quote, Super
 import datetime as dt
 from datetime import datetime 
 import time 
 from tam.forms import ContactForm, PreorderForm, ProfileForm
+from django.db.models import Max 
+import random 
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
+
+from tam.requests import get_quotes
 
 
 # Create your views here.
@@ -16,12 +24,14 @@ def profile(request,user_id):
     profile = User.objects.all().filter(pk=user_id)
     details = Profile.objects.all().filter(pk=user_id)
     updated_details = Profile.objects.all().last()
+    quotes = get_quotes()
 
     if request.method == 'POST':
         proform = ProfileForm(request.POST)
         if proform.is_valid():
             print('profile valid!')
             bio = proform.cleaned_data['bio']
+            # profile_photo = proform.cleaned_data['profile_photo']
             profile_info = Profile(bio=bio,)
             profile_info.save()
             print(profile_info)
@@ -32,7 +42,7 @@ def profile(request,user_id):
     user = request.user
     username = user.username 
     message = 'Welcome, ' + username
-    return render(request,'user/profile.html',{"profile":profile,"details":details,"message":message,"updated_details":updated_details,"proform":proform})
+    return render(request,'user/profile.html',{"profile":profile,"details":details,"message":message,"updated_details":updated_details,"proform":proform,"username":username,"quotes":quotes})
 
 @login_required(login_url='/accounts/login/')
 def updatebio(request):
@@ -142,5 +152,20 @@ def search_by_ingredient(request):
         message = f"{ingredient_term}"
         return render(request,'content/search_results.html',{"message":message,"searched_menus":searched_menus})
     else:
-        message = "You haven't searched anything yet."
+        message = "You haven't searched anything yet!"
         return render(request,'content/search_results.html',{"message":message})
+
+class RandomMealQuotes(APIView):
+    def get(self,request,format=None):
+        quotes = Quote.objects.all().aggregate(quotes=Max("id"))['quotes']
+        pk = random.randint(1,quotes)
+        random_quote = Quote.objects.get(pk=pk)
+        serializers = QuoteSerializer(random_quote,many=False)
+        return Response(serializers.data)
+
+    def post(self,request,format=None):
+        serializers = QuoteSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data,status=status.HTTP_201_CREATED)
+        return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)

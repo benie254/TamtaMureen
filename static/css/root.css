@@ -16,12 +16,14 @@ p{
 }
 h1{
     font-family: 'Marcellus SC', serif; 
+    font-weight:bold;
 }
 h2{
     font-family: 'Rozha One', serif;
 }
 h3{
     font-family: 'Markazi Text', serif;
+    font-weight:bold;
 }
 h4,h5{
     font-family: 'Telex', sans-serif;
@@ -54,7 +56,7 @@ h6{
 }
 
 
-.landing-container,.landing-container3,.container-contact,#menu-body,#home-body,#checkout-body{
+.landing-container,.landing-container3,.container-contact,#menu-body,#home-body,#checkout-body,#profile-body,#signout-body,.primary-color{
     background-color:#E9F7CA;
 }
 .carousel-inner{
@@ -91,7 +93,7 @@ h6{
     border-top-right-radius: 15%;
     position: relative;
 }
-.container-contact input,#preorder .btn{
+.container-contact input,#preorder .btn,input{
     margin:1%;
 }
 .container-contact button{
@@ -118,7 +120,7 @@ footer{
     transform: scale(0.8);
 }
 
-.header,#preorder,.nav,footer,.landing-body,.home-card,#checkout-table{
+.header,#preorder,.nav,footer,.landing-body,.home-card,#checkout-table,#col-details,.col-ppic,#signout-panel,.secondary-color{
     background-color: #F7D488;
 }
 .home-card-btn{
@@ -140,6 +142,31 @@ footer{
 .menu-status{
     font-size:x-small;
 }
-#preorder{
+#preorder,#bioForm{
     display:none;
+}
+#profile-pic{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    padding:1.5%;
+}
+#bio-btn{
+    font-size:xx-small;
+}
+#quote-link,#signout-link{
+    font-size:x-small;
+}
+#signout-panel,.secondary-color{
+    padding:5%;
+}
+.half-padding{
+    padding:2.5%;
+
+}
+.supporting-color{
+    background-color: white;
+}
+.links{
+    font-size:small;
 }

@@ -4,22 +4,30 @@
 
 
 {%block content%}
+<body id="signout-body">
+    
+
+</body>
 <div class="container">
     <div class="row">
         <div class="col-md-4"></div>
 
         <div class="col-md-4 rounded">
-            <div class="panel panel-default">
+            <div class="panel panel-default rounded">
                 <div class="panel-heading">
-                    <h3 class="text-center">
+                    <br>
+                    <h2 class="text-center">
                         Signed Out
-                    </h3>
+                    </h2>
                 </div>
-                <div class="panel-body">
-                    <h6>Sad to see you leave...</h6>
+                <br> <br>
+                <div class="panel-body rounded" id="signout-panel">
+                    
+                    <h5 class="text-center">Sad to see you leave...</h5>
+                    <p class="text-center">Log back in? <a href="/accounts/signin" id="signout-link">Click here</a></p>
                 </div>
             </div>
-            <p>Log back in? <a href="/accounts/signin">Click here</a></p>
+            
         </div>
 
         <div class="col-md-4"></div>

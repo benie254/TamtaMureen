@@ -4,18 +4,23 @@
 
 
 {%block content%}
+<body class="primary-color">
+    
+</body>
 
 <div class="container">
     <div class="row">
         <div class="col-md-4"></div>
 
-        <div class="col-md-4 rounded">
+        <div class="col-md-4 rounded supporting-color">
             {%if form.errors%}
+            <br>
             <p>
-                Please confirm that your information is correct.
+                Some information may be incorrect.
             </p>
             {%endif%}
-            <div class="panel panel-default">
+            <br><br>
+            <div class="panel panel-default secondary-color padding">
                 <div class="panel-heading">
                     <h3 class="text-center">
                         Sign Up
@@ -26,14 +31,16 @@
                         {%csrf_token%}
                         {%bootstrap_form form%}
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+                            <input type="submit" class="btn btn-light btn-outline-dark btn-sm" value="Sign Up">
                         </div>
                         <input type="hidden" name="next" value="{{next}}">
                     </form>
-                    <p>Already a member? <a href="/accounts/signin">Sign in here</a></p>
+                    <p>Already a member? <a href="/accounts/signin" class="links">Sign in here</a></p>
                 </div>
             </div>
+            <br>
         </div>
+        
 
         <div class="col-md-4"></div>
     </div>

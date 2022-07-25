@@ -1,20 +1,27 @@
 {%extends 'base.html'%}
 {%load static%}
 {%load bootstrap5%}
+{%load bootstrap4%}
+{%load crispy_forms_tags%}
 
 
 {%block content%}
+<body class="primary-color">
+    
+</body>
 <div class="container">
     <div class="row">
         <div class="col-md-4"></div>
 
-        <div class="col-md-4 rounded">
+        <div class="col-md-4 rounded supporting-color">
             {%if form.errors%}
+            <br>
             <p>
-                Please confirm that your password and username are correct.
+                Some information may be incorrect
             </p>
             {%endif%}
-            <div class="panel panel-default">
+            <br><br>
+            <div class="panel panel-default secondary-color">
                 <div class="panel-heading">
                     <h3 class="text-center">
                         Sign In
@@ -23,15 +30,16 @@
                 <div class="panel-body">
                     <form action="/accounts/signin" method="post">
                         {%csrf_token%}
-                        {%bootstrap_form form%}
+                        {{form|crispy}}
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                            <input type="submit" class="btn btn-light btn-outline-dark btn-sm" value="Login">
                         </div>
                         <input type="hidden" name="next" value="{{next}}">
                     </form>
                 </div>
+                <p>Don't have an account? <a href="/accounts/register/" class="links">Sign up here</a></p>
             </div>
-            <p>Don't have an account? <a href="/accounts/register/">Sign up here</a></p>
+            
         </div>
 
         <div class="col-md-4"></div>
