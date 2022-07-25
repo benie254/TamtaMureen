@@ -54,7 +54,7 @@ h6{
 }
 
 
-.landing-container,.landing-container3,.container-contact,#menu-body,#home-body{
+.landing-container,.landing-container3,.container-contact,#menu-body,#home-body,#checkout-body{
     background-color:#E9F7CA;
 }
 .carousel-inner{
@@ -118,7 +118,7 @@ footer{
     transform: scale(0.8);
 }
 
-.header,#preorder,.nav,footer,.landing-body,.home-card{
+.header,#preorder,.nav,footer,.landing-body,.home-card,#checkout-table{
     background-color: #F7D488;
 }
 .home-card-btn{
