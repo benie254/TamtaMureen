@@ -8,15 +8,15 @@
         <div>
         <br>
         <h6>Your preorder was successful!</h6>
-        <h4>Here are your order details</h4>
+        <p>An order request has been sent to Maureen's kitchen, with the following information</p>
         {%for item in menu%} 
-        {{meal.name}}
-        {{meal.cost}}
+        {{item.name}}
+        {{item.cost}}
         {%endfor%} 
 
         {%if preorder%}
-        {{preorder.name}}
-        {{preorder.date}}
+        {{preorder.your_name}}
+        {{preorder.order_date}}
         {%endif%} 
         </div>
     </div>

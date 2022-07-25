@@ -99,24 +99,29 @@ def menu(request,menu_id):
         preform = PreorderForm(request.POST)
         if preform.is_valid():
             print('preorder valid!')
+            menu_item = preform.cleaned_data['menu_item']
+            item_cost = preform.cleaned_data['item_cost']
             your_name = preform.cleaned_data['your_name']
+            your_email = preform.cleaned_data['your_email']
+            your_mobile = preform.cleaned_data['your_mobile']
             order_date = preform.cleaned_data['order_date']
-            order_info = Preorder(order_date=order_date,your_name=your_name)
+            order_info = Preorder(order_date=order_date,your_name=your_name,your_email=your_email,your_mobile=your_mobile,menu_item=menu_item,item_cost=item_cost)
             order_info.save()
             email = 'beniewrites@gmail.com'
             
             print(order_info)
-            orderinfo_email(your_name,order_date,email)
-            emailmsg = orderinfo_email(your_name,order_date,email)
+            orderinfo_email(menu_item,item_cost,your_name,your_email,your_mobile,order_date,email)
+            emailmsg = orderinfo_email(menu_item,item_cost,your_name,your_email,your_mobile,order_date,email)
             print(emailmsg)
             
-            return redirect('checkout')
+            return redirect('checkout',menu_id)
     else:
         preform = PreorderForm()
     
     return render(request,'content/menu.html',{"menu":menu,"preform":preform})
 
-def checkout(request):
+def checkout(request,menu_id):
+    menu = Menu.objects.all().filter(pk=menu_id)
     preorder = Preorder.objects.all().last()
     return render(request,'content/checkout.html',{"menu":menu,"preorder":preorder})
 

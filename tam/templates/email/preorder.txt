@@ -3,6 +3,10 @@ Hello, Maureen
 Someone has placed an order at TamtaMureen. 
 
 Name: {{name}}
+Email: {{email}}
+Mobile No.: {{mobile}}
+Menu Item: {{menu}}
+Item Cost: {{cost}}
 Requested Date: {{date}}
 
 Wanna head over to your profile and check it out? You can use <a href="https://tamtamureen.herokuapp.com/user/1">this link</a>.

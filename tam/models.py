@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User 
 from cloudinary.models import CloudinaryField
@@ -94,10 +95,12 @@ class Menu(models.Model):
 
 class Preorder(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    menu = models.ForeignKey(Menu,on_delete=models.CASCADE,null=True)
-    your_name = models.CharField(max_length=60,null=True)
-    order_date = models.DateField(null=True)
-    email = models.EmailField(null=True)
+    menu_item = models.CharField(max_length=60,null=True)
+    item_cost = models.IntegerField(null=True)
+    your_name = models.CharField(max_length=60,default='')
+    your_mobile = models.IntegerField(null=True)
+    your_email = models.EmailField(null=True)
+    order_date = models.DateField(default=timezone.now)
 
 class Contact(models.Model):
     name = models.CharField(max_length=60,default='')

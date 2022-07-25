@@ -45,8 +45,15 @@
               <br>
               <h5>Preorder</h5>
               <form action="{%url 'menu' item.id%}" method="post">
-                {%csrf_token%} {%bootstrap_form preform%}
-                <button type="submit" class="btn btn-light btn-outline-dark">Place order</button>
+                {%csrf_token%} 
+                <input type="text" name="menu_item" value="{{item.name}}">
+                <span>$</span><input type="number" name="item_cost" value="{{item.cost}}"> <br> <br>
+                <input type="text" name="your_name" placeholder="Who is ordering?"> <br>
+                <input type="email" name="your_email" placeholder="Enter your email">  or 
+                <input type="number" name="your_mobile" placeholder="Enter your mobile no."> <br>
+                <label for="order_date">Order date</label> 
+                <input type="date" name="order_date" label="Preorder date"> 
+                <button type="submit" class="btn btn-sm btn-light btn-outline-dark">Place order</button>
             </form>
             </div>
                 

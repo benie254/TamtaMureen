@@ -19,7 +19,7 @@ urlpatterns = [
     path('home',views.home,name='home'),
     path('menu/<menu_id>',views.menu,name='menu'),
     path('menus/search-by-ingredient-results',views.search_by_ingredient,name='search-results'),
-    path('menu/pre-order/checkout',views.checkout,name='checkout'),
+    path('menu/pre-order/checkout/<menu_id>',views.checkout,name='checkout'),
     path('user/update-bio',views.updatebio,name='update-bio'),
     path('user/contact-success',views.contact,name='contact-success'),
 

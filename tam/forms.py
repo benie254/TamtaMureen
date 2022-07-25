@@ -1,12 +1,11 @@
 from django import forms
-from tam.models import Contact, Profile 
+from tam.models import Contact, Menu, Preorder, Profile 
 
 
-class PreorderForm(forms.Form):
-    your_name = forms.CharField(max_length=60)
-    order_date = forms.DateField(
-        widget=forms.SelectDateWidget
-    )
+class PreorderForm(forms.ModelForm):
+    class Meta:
+        model = Preorder
+        fields = ('menu_item','item_cost','your_name','your_email','your_mobile','order_date')
 
 class ProfileForm(forms.ModelForm):
     class Meta:
