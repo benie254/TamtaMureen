@@ -7,8 +7,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Super(models.Model):
-    name = models.CharField(max_length=60,null=True)
-    about_me = models.CharField(max_length=500,null=True)
+    name = models.CharField(max_length=60,default='')
+    about_me = models.CharField(max_length=500,default='')
     profile_photo = CloudinaryField('Profile photo',null=True)
     address = models.CharField(max_length=150,null=True)
     email = models.EmailField(null=True)
@@ -18,7 +18,7 @@ class Super(models.Model):
 
 class Profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    bio = models.CharField(max_length=250,null=True)
+    bio = models.CharField(max_length=250,default='')
     profile_photo = CloudinaryField('image', null=True)
     CHOICES = (('active','active'),('away','away'))
     status = models.CharField(max_length=60,choices=CHOICES,null=True)
@@ -95,7 +95,7 @@ class Menu(models.Model):
 
 class Preorder(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    menu_item = models.CharField(max_length=60,null=True)
+    menu_item = models.CharField(max_length=60,default='')
     item_cost = models.IntegerField(null=True)
     your_name = models.CharField(max_length=60,default='')
     your_mobile = models.IntegerField(null=True)
