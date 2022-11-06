@@ -1,5 +1,5 @@
 """
-WSGI config for Tamu project.
+WSGI config for Tam_Proj project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Tamu.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Tam_Proj.settings')
 
 application = get_wsgi_application()

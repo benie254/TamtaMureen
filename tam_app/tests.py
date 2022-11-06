@@ -1,5 +1,5 @@
 from django.test import TestCase
-from tam.models import Profile,ingredient,Menu 
+from tam_app.models import Profile,ingredient,Menu 
 from django.contrib.auth.models import User 
 
 # Create your tests here.

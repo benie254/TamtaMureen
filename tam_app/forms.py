@@ -1,5 +1,5 @@
 from django import forms
-from tam.models import Contact, Menu, Preorder, Profile 
+from tam_app.models import Contact, Menu, Preorder, Profile 
 
 
 class PreorderForm(forms.ModelForm):

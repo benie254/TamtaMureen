@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TamConfig(AppConfig):
+class TamAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'tam'
+    name = 'tam_app'

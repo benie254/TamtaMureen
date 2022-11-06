@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from tam.models import Quote 
+from tam_app.models import Quote 
 
 
 class QuoteSerializer(serializers.ModelSerializer):

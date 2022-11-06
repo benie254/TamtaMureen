@@ -2,20 +2,19 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from tam.api.serializers import QuoteSerializer
-from tam.email import contact_email, orderinfo_email
-from tam.models import Contact, Menu, Profile,Preorder, Quote, Super
+from tam_app.serializers import QuoteSerializer
+from tam_app.models import Contact, Menu, Profile,Preorder, Quote, Super
 import datetime as dt
 from datetime import datetime 
 import time 
-from tam.forms import ContactForm, PreorderForm, ProfileForm
+from tam_app.forms import ContactForm, PreorderForm, ProfileForm
 from django.db.models import Max 
 import random 
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 
-from tam.requests import get_quotes
+from tam_app.requests import get_quotes
 
 
 # Create your views here.
