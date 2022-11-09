@@ -35,7 +35,7 @@ Request delivery  |  Form validation
 * [FontAwesome](https://fontawesome.com/)
 
 ## Contact 
-Reach me through [mail](mailto:davinci.monalissa@gmail.com) or [LinkedIn](https://www.linkedin.com/in/benson-langat-fullstack-developer)
+You can reach me through [mail](mailto:davinci.monalissa@gmail.com) or [LinkedIn](https://www.linkedin.com/in/benson-langat-fullstack-developer)
 
 ## License 
 *Copyright (c) 2022* ***Benson Langat***
