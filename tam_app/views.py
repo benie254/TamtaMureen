@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from tam_app.serializers import QuoteSerializer
-from tam_app.models import Contact, Menu, Profile,Preorder, Quote, Super
+from tam_app.models import Contact, Menu, Profile,Preorder, Quote
 import datetime as dt
 from datetime import datetime 
 import time 

@@ -100,6 +100,10 @@ REGISTRATION_OPEN = True
 ACCOUNT_ACTIVATION_DAYS = 7 
 REGISTRATION_AUTO_LOGIN = True
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+AUTH_USER_MODEL = 'tam_app.MyUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
